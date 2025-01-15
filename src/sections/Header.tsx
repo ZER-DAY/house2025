@@ -1,13 +1,12 @@
 import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logosaas.png";
 import Image from "next/image";
-import MenuIcon from "@/assets/menu.svg";
-import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa"; // أيقونات واتساب وتلقرام
+import Link from "next/link";
+import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
 
 export const Header = () => {
   return (
     <header className="sticky top-0 backdrop-blur-sm z-20">
-      {/* الشريط العلوي */}
       <div className="flex justify-center items-center py-3 bg-black text-white text-sm gap-3">
         <p className="text-white/60 hidden md:block">
           Streamline your workflow and boost your productivity
@@ -17,30 +16,62 @@ export const Header = () => {
           <ArrowRight className="h-4 w-4 inline-flex justify-center items-center" />
         </div>
       </div>
-
-      {/* الشريط السفلي */}
       <div className="py-5 bg-stone-400">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* الشعار */}
-            <Image src={Logo} alt="Saas Logo" height={40} width={40} />
-
-            {/* أيقونة القائمة (للهواتف فقط) */}
-            <MenuIcon className="h-5 w-5 md:hidden" />
+            <Link href="/">
+              <Image
+                src={Logo}
+                alt="Saas Logo"
+                height={40}
+                width={40}
+                className="cursor-pointer"
+              />
+            </Link>
 
             {/* شريط التنقل */}
             <nav className="hidden md:flex gap-6 text-black/60 items-center">
-              <a href="/">Главная</a>
-              <a href="#">Каталог проектов</a>
-              <a href="#">Барнхаусы</a>
-              <a href="#">Фахверки</a>
-              <a href="#">Бани</a>
-              <a href="#">Портфолио</a>
-              <a href="#">Ипотека</a>
+              {/* الصفحة الرئيسية */}
+              <Link
+                href="/"
+                className="hover:text-black transition-all font-medium"
+              >
+                Главная
+              </Link>
+
+              {/* الروابط الأخرى */}
+              <Link
+                href="/categories/barnhausy"
+                className="hover:text-black transition-all"
+              >
+                Барнхаусы
+              </Link>
+              <Link
+                href="/categories/fakhwerki"
+                className="hover:text-black transition-all"
+              >
+                Фахверки
+              </Link>
+              <Link
+                href="/categories/bani"
+                className="hover:text-black transition-all"
+              >
+                Бани
+              </Link>
+              <Link
+                href="/categories/portfolio"
+                className="hover:text-black transition-all"
+              >
+                Портфолио
+              </Link>
+              <Link href="#" className="hover:text-black transition-all">
+                Ипотека
+              </Link>
 
               {/* زر Telegram */}
               <a
-                href="https://t.me/YourTelegramUsername" // ضع رابط حساب Telegram هنا
+                href="https://t.me/YourTelegramUsername"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center gap-2 hover:bg-blue-600 transition-all duration-300"
@@ -51,7 +82,7 @@ export const Header = () => {
 
               {/* زر WhatsApp */}
               <a
-                href="https://wa.me/1234567890" // ضع رقم واتساب الخاص بك هنا
+                href="https://wa.me/1234567890"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center gap-2 hover:bg-green-600 transition-all duration-300"

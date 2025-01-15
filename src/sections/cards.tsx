@@ -35,7 +35,6 @@ const Cards = () => {
               key={id}
               id={id}
               title={house.title}
-              rooms={house.specs.rooms}
               size={`${house.specs.area} м²`}
               price={`${house.specs.price} руб.`}
               imageUrl={house.images[0]}
