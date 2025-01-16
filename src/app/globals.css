@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* قواعد إضافية لتجنب التمرير الأفقي */
+@layer base {
+  html,
+  body {
+    @apply w-full overflow-x-hidden;
+  }
+}
+
+/* تخصيص المكونات */
 @layer components {
   .btn {
     @apply px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
@@ -36,6 +45,10 @@
   }
 
   .card {
-    @apply p-10 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
+    @apply p-6 border border-[#222222]/10 rounded-3xl shadow-[0_7px_14px_#EAEAEA] max-w-xs w-full;
+  }
+
+  .container {
+    @apply max-w-screen-lg mx-auto px-4;
   }
 }
