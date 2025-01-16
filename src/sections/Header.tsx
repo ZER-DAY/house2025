@@ -60,13 +60,13 @@ export const Header = () => {
                 Бани
               </Link>
               <Link
-                href="/categories/portfolio"
+                href="/"
                 className="hover:text-black transition-all"
               >
-                Портфолио
+                Контакты
               </Link>
               <Link href="#" className="hover:text-black transition-all">
-                Ипотека
+                О компании
               </Link>
 
               {/* زر Telegram */}
