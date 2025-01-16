@@ -1,8 +1,34 @@
-// pages/about.tsx
+"use client";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 import Image from "next/image";
 
 export default function About() {
+  const teamMembers = [
+    {
+      name: "",
+      position: "основатель компании",
+      image: "/haje.png",
+    },
+    {
+      name: "Диана",
+      position: "менеджер по продажам",
+      image: "/manger.jpg",
+    },
+    {
+      name: "ИВАН ИВАНОВ",
+      position: "Главный архитектор проектов",
+      image: "/avan.png",
+    },
+  ];
+
   return (
     <div className="bg-gray-50 py-10 px-4">
       <div className="max-w-7xl mx-auto">
@@ -14,7 +40,7 @@ export default function About() {
         </div>
 
         {/* الشبكة الرئيسية */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-y-6 md:gap-x-10">
           {/* العمود الأول */}
           <div className="space-y-6">
             <div className="bg-white p-6 rounded shadow">
@@ -57,7 +83,7 @@ export default function About() {
           </div>
 
           {/* العمود الأوسط */}
-          <div className="text-center">
+          <div>
             {/* النص العلوي */}
             <div className="bg-white p-6 rounded shadow mb-6">
               <h3 className="text-xl font-medium">с 2010 года</h3>
@@ -67,21 +93,37 @@ export default function About() {
               </p>
             </div>
 
-            {/* صورة الموظف */}
-            <div className="relative">
-              <div className="relative w-64 h-64 mx-auto">
-                <Image
-                  src="/haje.png" // استبدل الصورة هنا
-                  alt="Белоус Алексей"
-                  layout="fill"
-                  className="rounded-full object-cover"
-                />
-              </div>
-              <div className="text-center mt-4">
-                <h4 className="text-lg font-bold"> </h4>
-                <p className="text-lg font-bold">основатель компании</p>
-              </div>
-            </div>
+            {/* السلايدر للصور */}
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 3000 }}
+            >
+              {teamMembers.map((member, index) => (
+                <SwiperSlide key={index}>
+                  <div className="flex flex-col items-center">
+                    {/* الصورة الدائرية */}
+                    <div className="relative w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden shadow-lg mx-auto">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        layout="fill"
+                        objectFit="cover" // الصورة تملأ الحاوية بالكامل
+                      />
+                    </div>
+
+                    {/* النصوص أسفل الصورة */}
+                    <div className="w-80 bg-blue-600 bg-opacity-90 text-white text-center py-4 mt-4 rounded-lg shadow-md">
+                      <h4 className="text-lg font-bold">{member.name}</h4>
+                      <p className="text-sm">{member.position}</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
             {/* النص السفلي */}
             <div className="bg-white p-6 rounded shadow mt-6">

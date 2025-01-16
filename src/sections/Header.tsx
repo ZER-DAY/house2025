@@ -59,10 +59,8 @@ export const Header = () => {
               >
                 Бани
               </Link>
-              <Link href="/" className="hover:text-black transition-all">
-                Контакты
-              </Link>
-              <Link href="#" className="hover:text-black transition-all">
+
+              <Link href="/contact" className="hover:text-black transition-all">
                 О компании
               </Link>
 
