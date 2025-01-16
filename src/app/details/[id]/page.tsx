@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import houseDetails from "@/data/houses";
+import FloorPlans from "@/components/FloorPlans"; // Component for Floor Plans
 import SwiperGallery from "@/components/SwiperGallery";
 import ReviewsSection from "@/components/ReviewsSection";
 import YandexMapWithPoints from "@/components/YandexMapWithPoints";
@@ -20,30 +21,28 @@ export default function Details({ params }: { params: { id: string } }) {
   return (
     <div className="bg-gray-100 min-h-screen p-6">
       <div className="container mx-auto max-w-6xl bg-white shadow-md rounded-lg overflow-hidden">
-        {/* قسم الصور والعنوان والوصف */}
-        <div className="flex flex-col md:flex-row p-6 ml-4">
-          {/* معرض الصور */}
+        {/* Section for image and text */}
+        <div className="flex flex-col md:flex-row items-center gap-6 p-6">
+          {/* Image Section */}
           <div className="md:w-1/2">
             {house.images && house.images.length > 0 ? (
-              <div className="grid grid-cols-2 gap-4">
-                <SwiperGallery images={house.images} />
-              </div>
+              <SwiperGallery images={house.images} />
             ) : (
               <p className="text-gray-500">لا توجد صور متاحة لهذا المنزل.</p>
             )}
           </div>
 
-          {/* العنوان والوصف + تفاصيل المنزل */}
-          <div className="md:w-1/2 flex flex-col justify-center text-left p-6">
-            <h1 className="text-2xl font-bold mb-4 -mt-4 text-black">
+          {/* Text Section */}
+          <div className="md:w-1/2 flex flex-col text-left">
+            <h1 className="text-2xl font-bold mb-4 text-black">
               {house.title || "عنوان غير متوفر"}
             </h1>
             <p className="text-gray-600 mb-4">
               {house.description || "الوصف غير متوفر"}
             </p>
 
-            {/* تفاصيل المنزل */}
-            <div className="w-full bg-[#F7F7F7] text-[#191919] font-sans p-4 rounded-lg shadow-md mt-4">
+            {/* House Details */}
+            <div className="bg-[#F7F7F7] text-[#191919] font-sans p-4 rounded-lg shadow-md mt-4">
               <h2 className="text-xl font-bold text-gray-800 mb-4">
                 Детали дома
               </h2>
@@ -73,41 +72,21 @@ export default function Details({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        {/* عرض خطط المنزل */}
+        {/* Floor Plans */}
         <div className="p-6 border-t mt-6">
           <h2 className="text-xl font-semibold mb-4 text-gray-800 text-center">
             Планировка
           </h2>
-          <div className="flex flex-row justify-between gap-6">
-            {/* عرض صور الخطط */}
-            {house.planImages && house.planImages.length > 0 ? (
-              house.planImages.map((image, index) => (
-                <div key={index} className="flex-1 flex flex-col items-center">
-                  <p className="text-lg font-medium text-gray-700 mb-4">
-                    Планировка {index + 1} этажа
-                  </p>
-                  <img
-                    src={image}
-                    alt={`Plan ${index + 1}`}
-                    className="rounded-lg shadow-md w-full h-[300px] object-cover max-w-[400px]"
-                  />
-                </div>
-              ))
-            ) : (
-              <p className="text-gray-500 text-center w-full">
-                لا توجد خطط متاحة لهذا المنزل.
-              </p>
-            )}
-          </div>
+          <FloorPlans planImages={house.planImages || []} />
         </div>
       </div>
 
-      {/* قسم التقييمات */}
+      {/* Reviews Section */}
       <div className="pt-32">
         <ReviewsSection />
       </div>
 
-      {/* خريطة Yandex */}
+      {/* Yandex Map */}
       <YandexMapWithPoints />
     </div>
   );

@@ -5,7 +5,7 @@ import SocialInsta from "@/assets/social-insta.svg";
 import SocialLinkedIn from "@/assets/social-linkedin.svg";
 import SocialPin from "@/assets/social-pin.svg";
 import SocialYoutube from "@/assets/social-youtube.svg";
-
+import Link from "next/link";
 export const Footer = () => {
   return (
     <footer className="bg-black text-[#BCBCBC] text-sm py-10 text-center">
@@ -14,13 +14,37 @@ export const Footer = () => {
           <Image src={logo} height={40} alt="SaaS logo" className="relative" />
         </div>
         <nav className="flex flex-col md:flex-row md:justify-center gap-6 mt-6">
-          <a href="#">Главная</a>
-          <a href="#">Каталог проектов</a>
-          <a href="#">Барнхаусы</a>
-          <a href="#">Фахверки</a>
-          <a href="#">Бани</a>
-          <a href="#">Портфолио</a>
-          <a href="#">Ипотека</a>
+          {/* الصفحة الرئيسية */}
+          <Link
+            href="/"
+            className="hover:text-white transition-all font-medium"
+          >
+            Главная
+          </Link>
+
+          {/* الروابط الأخرى */}
+          <Link
+            href="/categories/barnhausy"
+            className="hover:text-white transition-all"
+          >
+            Барнхаусы
+          </Link>
+          <Link
+            href="/categories/fakhwerki"
+            className="hover:text-white transition-all"
+          >
+            Фахверки
+          </Link>
+          <Link
+            href="/categories/bani"
+            className="hover:text-white transition-all"
+          >
+            Бани
+          </Link>
+
+          <Link href="/contact" className="hover:text-white transition-all">
+            О компании
+          </Link>
         </nav>
         <div className="flex justify-center gap-6 mt-6">
           <SocialX />
