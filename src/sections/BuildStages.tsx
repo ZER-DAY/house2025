@@ -69,7 +69,7 @@ export default function BuildStages() {
         </h2>
 
         {/* الصف الأول */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-8 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {stages.slice(0, 4).map((stage) => (
             <div
               key={stage.id}
@@ -112,7 +112,7 @@ export default function BuildStages() {
         </div>
 
         {/* الصف الثاني */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {stages.slice(4, 6).map((stage) => (
             <div
               key={stage.id}
