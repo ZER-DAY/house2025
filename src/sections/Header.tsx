@@ -66,7 +66,7 @@ export const Header = () => {
 
               {/* زر Telegram */}
               <a
-                href="https://t.me/YourTelegramUsername"
+                href="https://t.me/Gadji077"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center gap-2 hover:bg-blue-600 transition-all duration-300"
@@ -77,7 +77,7 @@ export const Header = () => {
               {/* hi */}
               {/* زر WhatsApp */}
               <a
-                href="https://wa.me/1234567890"
+                href="https://wa.me/+79380080691"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center gap-2 hover:bg-green-600 transition-all duration-300"
