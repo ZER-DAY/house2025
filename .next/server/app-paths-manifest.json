@@ -1,3 +1,5 @@
 {
-  "/categories/[category]/page": "app/categories/[category]/page.js"
+  "/categories/[category]/page": "app/categories/[category]/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/page": "app/page.js"
 }
