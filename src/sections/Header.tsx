@@ -108,7 +108,7 @@ export const Header = () => {
               {/* أزرار التطبيقات */}
               <div className="flex flex-col md:flex-row gap-3 mt-2">
                 <a
-                  href="https://t.me/"
+                  href="https://t.me/Gadji077"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center gap-2 hover:bg-blue-600 transition-all duration-300"
