@@ -45,12 +45,6 @@ export default function SwiperGallery({ images }: { images: string[] }) {
         </Swiper>
 
         {/* Swiper Navigation Buttons */}
-        <button className="swiper-button-prev absolute top-1/2 left-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-gray-600 z-10">
-          &#8592;
-        </button>
-        <button className="swiper-button-next absolute top-1/2 right-2 transform -translate-y-1/2 bg-gray-800 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-gray-600 z-10">
-          &#8594;
-        </button>
       </div>
 
       {/* Thumbnail Images */}
